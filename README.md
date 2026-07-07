@@ -15,8 +15,8 @@ We provide a contamination-aware and sampling-balanced phylogenomic framework to
 Asgard_Eukaryote_Data/
 ├── README.md
 ├── data/
-│   ├── alignments/                  # Supermatrix alignments used for phylogenomic inference
-│   ├── trees/                       # Maximum-likelihood phylogenetic trees (.contree files)
+│   ├── alignments/          # Supermatrix alignments used for phylogenomic inference
+│   └── trees/               # Maximum-likelihood phylogenetic trees (.contree files)
 ├── scripts/
 │   ├── phylogenomics/
 │   │   ├── run_iqtree_ml.sh         # Maximum-likelihood inference (IQ-TREE 3)
@@ -26,9 +26,8 @@ Asgard_Eukaryote_Data/
 │   │   └── run_decontamination.sh   # Main decontamination workflow (CAT + geNomad)
 │   └── independent_audit/
 │       └── independent_audit.sh     # Independent post-hoc contamination audit
+└── docs/
 └── Data_Availability_Statement.md
-
-
 
 ## Contents
 
