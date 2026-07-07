@@ -11,24 +11,6 @@ This repository contains data and scripts supporting the manuscript:
 
 We provide a contamination-aware and sampling-balanced phylogenomic framework to resolve long-standing conflicts in the placement of eukaryotes relative to Asgard archaea. All analyses converge on a stable topology in which eukaryotes are recovered as sister to a monophyletic Asgard–TACK radiation when both genome contamination and taxonomic sampling imbalance are rigorously controlled.
 
-## Repository Structure
-Asgard_Eukaryote_Data/
-├── README.md
-├── data/
-│   ├── alignments/          # Supermatrix alignments used for phylogenomic inference
-│   └── trees/               # Maximum-likelihood phylogenetic trees (.contree files)
-├── scripts/
-│   ├── phylogenomics/
-│   │   ├── run_iqtree_ml.sh         # Maximum-likelihood inference (IQ-TREE 3)
-│   │   ├── run_phylobayes.sh        # Bayesian inference (PhyloBayes MPI, CAT-GTR)
-│   │   └── run_au_topology_tests.sh # Approximately Unbiased (AU) topology tests
-│   ├── decontamination/
-│   │   └── run_decontamination.sh   # Main decontamination workflow (CAT + geNomad)
-│   └── independent_audit/
-│       └── independent_audit.sh     # Independent post-hoc contamination audit
-└── docs/
-└── Data_Availability_Statement.md
-
 ## Contents
 
 - **`data/alignments/`** and **`data/trees/`**: Supermatrix alignments and resulting phylogenetic trees from the factorial phylogenomic design (5 genome collections × 4 marker sets).
