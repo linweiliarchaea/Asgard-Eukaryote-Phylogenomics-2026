@@ -79,12 +79,13 @@ echo ">>> [Step 4] Running IQ-TREE 3 (LG+C60+F+G + UFBoot)..."
 # Model: LG+C60+F+G (site-heterogeneous mixture model)
 # Bootstrap: 1000 ultrafast bootstrap replicates
 
-${SORTWARE_DIR}/iqtree3-mpi \
+mpirun --bind-to core --map-by ppr:2:node:PE=48 \
+	${SORTWARE_DIR}/iqtree3-mpi \
 	-s "${ALIGNMENT_DIR}/supermatrix.faa" \
 	-st AA \
     -m ${MODEL} \
     -pre "${OUTPUT_DIR}/supermatrix" \
-    -nt 96 \
+    -nt 48 \
     -bb 1000
 
 echo "    (IQ-TREE 3 ML inference step - placeholder)"
