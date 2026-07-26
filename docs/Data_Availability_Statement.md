@@ -6,7 +6,7 @@ All data and code supporting the findings of this study are available as follows
 
 Genome collections, phylogenetic marker sets, concatenated alignments, phylogenetic trees, decontamination assessment tables, removed-contig summaries, taxonomic count tables, and ESP inventories are deposited in this repository:
 
-**https://github.com/linweiliarchaea/Asgard-Eukaryote-Phylogenomics-2026**
+**https://github.com/tjcadd2020/Asgard-Eukaryote-Phylogenomics-2026**
 
 (Update the URL if the repository is transferred to an institutional account.)
 
