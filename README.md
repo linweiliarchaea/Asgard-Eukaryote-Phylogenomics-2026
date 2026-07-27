@@ -4,7 +4,7 @@ Data and analysis scripts supporting the manuscript:
 
 **Bias-controlled phylogenomics resolves conflicting archaeal placements of eukaryotes**
 
-This repository archives genome lists, taxonomic counts, phylogenetic marker sets, concatenated alignments, phylogenetic trees, decontamination assessment tables, ESP inventories, viral-detection summaries, and example analysis scripts used in the study.
+This repository archives genome lists, taxonomic counts, phylogenetic marker sets, concatenated alignments, phylogenetic trees, decontamination assessment tables, ESP inventories, viral-detection summaries, Supplementary Tables, and example analysis scripts used in the study.
 
 ---
 
@@ -24,6 +24,7 @@ Asgard_Eukaryote_Data/
 │   └── figure_reproduction/    # Scripts and notes for selected figures
 └── data/
     ├── data_README.md
+    ├── supplementary_tables/   # Supplementary Tables 1–20 and index README
     ├── genome_sets/            # Genome accession lists (GS*)
     ├── taxonomic_counts/       # Phylum / class / order counts after balancing
     ├── PMS/                    # Marker composition and overlap
@@ -58,7 +59,8 @@ Asgard_Eukaryote_Data/
 | **B** | Taxonomically balanced collection |
 
 Genome accession lists: `data/genome_sets/`  
-Taxonomic counts after balancing: `data/taxonomic_counts/`
+Taxonomic counts after balancing: `data/taxonomic_counts/`  
+Supplementary Tables (complete set): `data/supplementary_tables/`
 
 ---
 
@@ -82,10 +84,10 @@ Composition and overlap among the four PMSs:
 2. **Primary decontamination** — contig removal for phylogenomic genome collections (`data/decontamination/phylogenomic_sets/`).
 3. **Factorial phylogenomics** — combinations of genome collections (raw/clean × imbalanced/balanced) and the four PMSs (`data/alignments/`, `data/trees/maximum_likelihood/`).
 4. **Topology tests** — approximately unbiased (AU) tests (`data/trees/AU_tests/`).
-5. **Bayesian inference** — PhyloBayes MPI under CAT-GTR (multiple independent chains; `data/trees/CAT-GTR/`).
+5. **Bayesian inference** — PhyloBayes MPI under CAT-GTR (ten independent chains; `data/trees/CAT-GTR/`).
 6. **Site-heterogeneous ML (PMSF)** — where applied (`data/trees/PMSF/`).
 7. **ESP inventories** — presence before versus after decontamination across Asgard, TACK, Euryarchaeota and DPANN (`data/ESP/`).
-8. **Independent post-hoc audit** — multi-evidence residual contamination check (`scripts/independent_audit/`).
+8. **Independent post-hoc audit** — multi-evidence residual contamination check (`scripts/independent_audit/`; summary tables under `data/decontamination/phylogenomic_sets/`).
 9. **Viral detection comparison** — summary tables supporting viral-contaminant analyses (`data/viral_detection_comparison/`).
 
 ---
@@ -104,21 +106,21 @@ Example commands are provided under `scripts/`. Paths inside scripts are placeho
 
 ## Figures
 
-Panel-level notes (scripted versus GraphPad Prism, iTOL, Illustrator or BioRender) are described in:
-
+Panel-level notes (scripted versus GraphPad Prism, iTOL, Illustrator or BioRender) are described in:  
 `scripts/figure_reproduction/figure_reproduction_README.md`
 
-Underlying numerical tables for contamination-frequency and related panels are intended for `data/decontamination/assessment/`.
+Underlying numerical tables for contamination-frequency and related panels are deposited under  
+`data/decontamination/assessment/`.
 
 ---
 
 ## Citation
 
-Please cite the published article when using these data or scripts. A repository https://doi.org/10.5281/zenodo.21612449, is listed in `docs/Data_Availability_Statement.md`.
+Please cite the published article when using these data or scripts.  
+A permanent DOI will be assigned via Zenodo upon deposition and will be listed here and in `docs/Data_Availability_Statement.md`.
 
 ---
 
 ## License
 
 Data are provided for academic reuse consistent with the journal data policy. Scripts are provided as documentation of the analytical workflow.
-```

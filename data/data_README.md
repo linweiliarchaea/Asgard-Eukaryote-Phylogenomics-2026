@@ -8,23 +8,24 @@ Overview of tables, alignments and trees deposited under `data/`. Paths are rela
 
 | Subfolder | Contents |
 | --- | --- |
+| `supplementary_tables/` | Complete set of Supplementary Tables 1–20 and index README |
 | `genome_sets/` | Genome accession lists and GTDB taxonomy for each collection (imbalanced and balanced) |
-| `taxonomic_counts/` | Genome counts at phylum, class and order levels after hierarchical balancing (separate sheets or files per domain where applicable) |
+| `taxonomic_counts/` | Genome counts at phylum, class and order levels after hierarchical balancing (separate sheets for Archaea, Bacteria and Eukaryota) |
 | `PMS/` | Marker membership and overlap among the four phylogenetic marker sets |
 | `alignments/` | Concatenated amino-acid supermatrices used as IQ-TREE input |
 | `trees/maximum_likelihood/` | IQ-TREE consensus trees (`.contree`) for GS × PMS combinations |
 | `trees/PMSF/` | PMSF (posterior mean site frequency) analyses |
-| `trees/CAT-GTR/` | PhyloBayes MPI CAT-GTR trees (per chain and/or consensus, as deposited) |
+| `trees/CAT-GTR/` | PhyloBayes MPI CAT-GTR trees (ten independent chains) |
 | `trees/AU_tests/` | Constraint topologies and approximately unbiased (AU) test output |
 | `trees/robustness_analyses.xlsx` | Summary of topological outcomes across robustness analyses |
-| `decontamination/assessment/` | Lineage-level contamination frequencies, contamination-derived eukaryotic-like protein summaries, and related assessment tables (e.g. supporting Fig. 1 and Extended Data figures) |
-| `decontamination/phylogenomic_sets/` | Contig-removal summaries for primary decontamination of phylogenomic collections; post-hoc audit tables where provided |
+| `decontamination/assessment/` | Lineage-level contamination frequencies, contamination-derived eukaryotic-like protein summaries, and related assessment tables |
+| `decontamination/phylogenomic_sets/` | Contig-removal summaries for primary decontamination; post-hoc audit tables |
 | `ESP/` | ESP / iESP presence–absence before versus after decontamination, by major archaeal group (Asgard, TACK, Euryarchaeota, DPANN) |
-| `viral_detection_comparison/` | Summary tables for viral-signal comparison (e.g. hallmark genes, taxonomy pies, set overlaps) |
+| `viral_detection_comparison/` | Summary tables for viral-signal comparison (hallmark genes, taxonomy pies, set overlaps) |
 
 ---
 
-## Genome collections (GS) represented in filenames
+## Genome collections (GS)
 
 | Label | Description |
 | --- | --- |
@@ -32,28 +33,66 @@ Overview of tables, alignments and trees deposited under `data/`. Paths are rela
 | GS-Zhang2025-B | Taxonomically balanced version of GS-Zhang2025 |
 | GS-Liu2021 | Benchmark set based on Liu et al. (2021) (sampling-imbalanced) |
 | GS-Liu2021-B | Taxonomically balanced version of GS-Liu2021 |
-| GS-Present-B | Independently assembled, taxonomically balanced set (this study) |
+| GS-Present-B | Independently assembled, taxonomically balanced genome set (this study) |
+
+**Suffixes used in alignment and tree filenames**
+
+| Suffix | Meaning |
+| --- | --- |
+| **raw** | Before primary decontamination |
+| **clean** | After primary decontamination |
+| **ultra-clean** | After independent post-hoc audit (where applicable) |
+| **B** | Taxonomically balanced collection |
 
 ---
 
-## File name conventions
+## Phylogenetic marker sets (PMS)
 
-| Pattern | Meaning |
+| PMS | Description |
 | --- | --- |
-| `*-raw-*` | Before primary decontamination |
-| `*-clean-*` | After primary decontamination |
-| `*-ultra-clean-*` | After independent post-hoc contamination audit (where applicable) |
-| `*-B-*` | Taxonomically balanced genome collection |
-| `*_PMS-Isolate` / `*_PMS-HighMAG1` / `*_PMS-HighMAG2` / `*_PMS-MediumMAG` | Marker set used for that alignment or tree |
+| PMS-Isolate | Complete isolate genomes only (strictest contamination control; lowest diversity) |
+| PMS-HighMAG1 | Isolates + MIMAG-defined high-quality MAGs after decontamination |
+| PMS-HighMAG2 | Isolates + NCBI complete-genome-level MAGs after decontamination |
+| PMS-MediumMAG | Isolates + CheckM-defined medium-quality MAGs after decontamination (highest diversity) |
 
-Alignment files are amino-acid FASTA (`.faa`). Tree files follow IQ-TREE / PhyloBayes naming (e.g. `.treefile`, `.contree`).
+Marker composition and overlap: `data/PMS/PMS_composition_and_overlap.xlsx`
+
+---
+
+## Supplementary Tables
+
+Full index and descriptions: `data/supplementary_tables/README.md`
+
+| Tables | Content |
+| --- | --- |
+| 1–5 | Genome accessions and GTDB taxonomy for each GS |
+| 6 | Phylogenetic results across all GS × PMS combinations |
+| 7–8 | Independent post-hoc contamination audit |
+| 9 | Retention of core phylogenetic markers before and after decontamination |
+| 10–17 | ESP inventories and aggregated loss rates (Asgard, TACK, Euryarchaeota, DPANN) |
+| 18–20 | Final taxonomic counts after balancing (GS-Present-B, GS-Zhang2025-B, GS-Liu2021-B) |
+
+---
+
+## File naming conventions
+
+Alignments and trees generally follow:
+
+```text
+{GS}-{raw|clean|ultra-clean}_{PMS}.{faa|contree}
+```
+
+Examples:
+
+- `GS-Zhang2025-B-clean_PMS-MediumMAG.contree`
+- `GS-Present-B-raw_PMS-Isolate.faa`
+- `GS-Zhang2025-B-ultra-clean_PMS-MediumMAG.contree`
 
 ---
 
 ## Notes
 
-- Not every GS × PMS × (raw/clean) combination is deposited if it was unused in the final analyses; deposited files correspond to those supporting the manuscript figures and tables.
-- Large intermediate files (raw MAG assemblies, per-contig CAT/geNomad outputs) are not included; accession lists and summary tables are provided instead.
-- For script paths and software versions, see the repository root `README.md` and `scripts/`.
-```
-
+- All accession lists use NCBI assembly accessions (GCA_/GCF_) where available.
+- GTDB taxonomy follows GTDB release R220 (or the release used for the corresponding analysis).
+- Numerical results underlying main-figure contamination panels are deposited under `data/decontamination/assessment/`.
+- Example analysis commands are provided under `scripts/`; paths inside scripts are placeholders.

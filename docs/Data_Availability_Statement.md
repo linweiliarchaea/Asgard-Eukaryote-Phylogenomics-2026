@@ -6,17 +6,16 @@ All data and code supporting the findings of this study are available as follows
 
 ## This repository
 
-Genome collections, phylogenetic marker sets, concatenated alignments, phylogenetic trees, decontamination assessment tables, taxonomic count tables, ESP inventories, viral-detection summaries, and example analysis scripts are deposited in this repository:
+Genome collections, phylogenetic marker sets, concatenated alignments, phylogenetic trees, decontamination assessment tables, taxonomic count tables, ESP inventories, viral-detection summaries, Supplementary Tables, and example analysis scripts are deposited in this repository:
 
-**https://github.com/tjcadd2020/Asgard-Eukaryote-Phylogenomics-2026**
+**https://github.com/linweiliarchaea/Asgard-Eukaryote-Phylogenomics-2026**
 
-(Update the URL if the repository is transferred to another institutional account.)
+(Update the URL if the repository is transferred to an institutional account.)
 
-**Key contents**
-
-| Content | Path |
+| Content | Location |
 | --- | --- |
-| Genome accession lists (GS-Zhang2025, GS-Liu2021, GS-Present-B and balanced **-B** derivatives) | `data/genome_sets/` |
+| Supplementary Tables 1–20 (complete set) | `data/supplementary_tables/` |
+| Genome accession lists and GTDB taxonomy for each GS | `data/genome_sets/` |
 | Taxonomic counts after hierarchical balancing (phylum / class / order) | `data/taxonomic_counts/` |
 | Four phylogenetic marker sets; composition and overlap | `data/PMS/` |
 | Concatenated amino-acid supermatrices | `data/alignments/` |
@@ -27,21 +26,24 @@ Genome collections, phylogenetic marker sets, concatenated alignments, phylogene
 | Example analysis scripts (phylogenomics, decontamination, balancing, ESP, independent audit) | `scripts/` |
 | Figure-panel production notes | `scripts/figure_reproduction/figure_reproduction_README.md` |
 
-Overview of the `data/` layout: `data/data_README.md`.
+Overview of the `data/` layout: `data/data_README.md`.  
+Index of Supplementary Tables: `data/supplementary_tables/README.md`.
 
 ---
 
-## Archival DOI (recommended)
+## Archival DOI
 
-Upon submission or acceptance, a frozen release of this repository should be archived at Zenodo (or an equivalent repository). Insert the DOI below when available:
+A permanent DOI will be assigned via Zenodo upon deposition of a frozen release of this repository. The DOI will be listed below and in the repository root `README.md` once available:
 
-- Zenodo DOI: `https://doi.org/10.5281/zenodo.21612449` 
+- Zenodo DOI: *to be added* (format: `10.5281/zenodo.XXXXXXX`)
 
 ---
 
 ## External sequence data
 
-Public isolate genomes and MAGs were obtained from NCBI RefSeq/GenBank and from the additional public sources listed in the genome-list tables. Accession numbers and GTDB taxonomic assignments are provided in `data/genome_sets/`.
+Public isolate genomes and metagenome-assembled genomes (MAGs) were obtained from NCBI RefSeq/GenBank and from the additional public sources listed in the genome-list tables. Accession numbers and GTDB taxonomic assignments are provided in `data/genome_sets/` and in Supplementary Tables 1–5.
+
+Raw metagenomic sequencing data, where newly generated for this study, are deposited in the NCBI Sequence Read Archive under BioProject accession **XXXXXX** *(insert accession if applicable)*. Otherwise, raw reads remain under the BioProject accessions reported by the original data generators.
 
 ---
 
@@ -62,6 +64,4 @@ Panel-level notes on scripted versus manually assembled displays (GraphPad Prism
 
 ## Code availability
 
-Example commands and workflows are provided under `scripts/` for documentation of the analytical pipeline. Paths inside scripts are placeholders and should be adapted to local computing environments. Software versions used for the primary analyses are listed in the Methods section of the manuscript and in the repository root `README.md`.
-```
-
+Example commands and workflows are provided under `scripts/` for documentation of the analytical pipeline. Paths inside scripts are placeholders and should be adapted to local computing environments. Software used for the primary analyses is listed in the Methods section of the manuscript and in the repository root `README.md`.
