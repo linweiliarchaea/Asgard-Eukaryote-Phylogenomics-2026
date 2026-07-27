@@ -128,5 +128,3 @@ BioRender is used for schematic illustration only; it is not required to regener
 4. File names in the table above may use `.xlsx` or `.csv` interchangeably if both formats are deposited; column meanings are described in `data/data_README.md`.
 ```
 
----
-

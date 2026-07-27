@@ -122,5 +122,3 @@ Please cite the published article when using these data or scripts. A repository
 
 Data are provided for academic reuse consistent with the journal data policy. Scripts are provided as documentation of the analytical workflow.
 ```
-
----

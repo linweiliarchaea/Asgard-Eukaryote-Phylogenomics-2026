@@ -57,4 +57,3 @@ Alignment files are amino-acid FASTA (`.faa`). Tree files follow IQ-TREE / Phylo
 - For script paths and software versions, see the repository root `README.md` and `scripts/`.
 ```
 
----

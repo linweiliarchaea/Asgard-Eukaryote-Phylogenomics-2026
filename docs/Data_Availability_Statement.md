@@ -65,4 +65,3 @@ Panel-level notes on scripted versus manually assembled displays (GraphPad Prism
 Example commands and workflows are provided under `scripts/` for documentation of the analytical pipeline. Paths inside scripts are placeholders and should be adapted to local computing environments. Software versions used for the primary analyses are listed in the Methods section of the manuscript and in the repository root `README.md`.
 ```
 
----
