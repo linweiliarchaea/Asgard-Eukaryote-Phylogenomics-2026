@@ -117,7 +117,8 @@ Underlying numerical tables for contamination-frequency and related panels are d
 ## Citation
 
 Please cite the published article when using these data or scripts.  
-A permanent DOI will be assigned via Zenodo upon deposition and will be listed here and in `docs/Data_Availability_Statement.md`.
+Data and code supporting this study are archived at Zenodo  
+(DOI: [10.5281/zenodo.21626765](https://doi.org/10.5281/zenodo.21626765)).
 
 ---
 

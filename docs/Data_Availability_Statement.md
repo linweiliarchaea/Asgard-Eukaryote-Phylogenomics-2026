@@ -33,9 +33,9 @@ Index of Supplementary Tables: `data/supplementary_tables/README.md`.
 
 ## Archival DOI
 
-A permanent DOI will be assigned via Zenodo upon deposition of a frozen release of this repository. The DOI will be listed below and in the repository root `README.md` once available:
+A frozen release of this repository is archived at Zenodo:
 
-- Zenodo DOI: *to be added* (format: `10.5281/zenodo.XXXXXXX`)
+- DOI: [10.5281/zenodo.21626765](https://doi.org/10.5281/zenodo.21626765)
 
 ---
 
