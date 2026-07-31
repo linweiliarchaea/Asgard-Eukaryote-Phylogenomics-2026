@@ -8,20 +8,20 @@ Overview of tables, alignments and trees deposited under `data/`. Paths are rela
 
 | Subfolder | Contents |
 | --- | --- |
-| `supplementary_tables/` | Complete set of Supplementary Tables 1–20 and index README |
+| `supplementary_tables/` | Complete set of Supplementary Tables and index README |
 | `genome_sets/` | Genome accession lists and GTDB taxonomy for each collection (imbalanced and balanced) |
 | `taxonomic_counts/` | Genome counts at phylum, class and order levels after hierarchical balancing (separate sheets for Archaea, Bacteria and Eukaryota) |
-| `PMS/` | Marker membership and overlap among the four phylogenetic marker sets |
+| `PMS/` | Marker membership and overlap among the four independently curated phylogenetic marker sets |
 | `alignments/` | Concatenated amino-acid supermatrices used as IQ-TREE input |
-| `trees/maximum_likelihood/` | IQ-TREE consensus trees (`.contree`) for GS × PMS combinations |
-| `trees/PMSF/` | PMSF (posterior mean site frequency) analyses |
-| `trees/CAT-GTR/` | PhyloBayes MPI CAT-GTR trees (ten independent chains) |
+| `trees/maximum_likelihood/` | IQ-TREE consensus trees (`.contree`) for GS × PMS combinations under LG+C60+F+G |
+| `trees/PMSF/` | Site-heterogeneous maximum-likelihood analyses under LG+C60+F+G+PMSF |
+| `trees/CAT-GTR/` | PhyloBayes MPI CAT-GTR trees (ten independent chains; chain-level topologies summarized descriptively) |
 | `trees/AU_tests/` | Constraint topologies and approximately unbiased (AU) test output |
-| `trees/robustness_analyses.xlsx` | Summary of topological outcomes across robustness analyses |
-| `decontamination/assessment/` | Lineage-level contamination frequencies, contamination-derived eukaryotic-like protein summaries, and related assessment tables |
-| `decontamination/phylogenomic_sets/` | Contig-removal summaries for primary decontamination; post-hoc audit tables |
+| `trees/robustness_analyses.xlsx` | Summary of topological outcomes across independent robustness analyses |
+| `decontamination/assessment/` | Lineage-level contamination frequencies, contamination-derived eukaryote-like protein summaries, and related assessment tables |
+| `decontamination/phylogenomic_sets/` | Contig-removal summaries for primary decontamination and independent post-hoc audit |
 | `ESP/` | ESP / iESP presence–absence before versus after decontamination, by major archaeal group (Asgard, TACK, Euryarchaeota, DPANN) |
-| `viral_detection_comparison/` | Summary tables for viral-signal comparison (hallmark genes, taxonomy pies, set overlaps) |
+| `viral_detection_comparison/` | Summary tables supporting the comparison of viral-signal detectors (geNomad versus Phager) |
 
 ---
 
@@ -29,9 +29,9 @@ Overview of tables, alignments and trees deposited under `data/`. Paths are rela
 
 | Label | Description |
 | --- | --- |
-| GS-Zhang2025 | Benchmark set based on Dong/Zhang et al. (sampling-imbalanced) |
+| GS-Zhang2025 | Benchmark set based on Zhang et al. 2025 (sampling-imbalanced) |
 | GS-Zhang2025-B | Taxonomically balanced version of GS-Zhang2025 |
-| GS-Liu2021 | Benchmark set based on Liu et al. (2021) (sampling-imbalanced) |
+| GS-Liu2021 | Benchmark set based on Liu et al. 2021 (sampling-imbalanced) |
 | GS-Liu2021-B | Taxonomically balanced version of GS-Liu2021 |
 | GS-Present-B | Independently assembled, taxonomically balanced genome set (this study) |
 
@@ -51,9 +51,11 @@ Overview of tables, alignments and trees deposited under `data/`. Paths are rela
 | PMS | Description |
 | --- | --- |
 | PMS-Isolate | Complete isolate genomes only (strictest contamination control; lowest diversity) |
-| PMS-HighMAG1 | Isolates + MIMAG-defined high-quality MAGs after decontamination |
-| PMS-HighMAG2 | Isolates + NCBI complete-genome-level MAGs after decontamination |
+| PMS-HighMAG1 | Isolates + high-quality MAGs after decontamination |
+| PMS-HighMAG2 | Isolates + complete-genome-level MAGs after decontamination |
 | PMS-MediumMAG | Isolates + CheckM-defined medium-quality MAGs after decontamination (highest diversity) |
+
+The four marker sets were independently curated after decontamination and single-protein-tree screening for HGT-like or anomalous phylogenetic histories. They share a core of 28 markers but are not strictly nested.
 
 Marker composition and overlap: `data/PMS/PMS_composition_and_overlap.xlsx`
 
@@ -94,5 +96,6 @@ Examples:
 
 - All accession lists use NCBI assembly accessions (GCA_/GCF_) where available.
 - GTDB taxonomy follows GTDB release R220 (or the release used for the corresponding analysis).
+- Under full control of both contamination and taxonomic sampling imbalance, all 12 genome-set–marker-set analyses recovered eukaryotes as sister to a monophyletic TACK–Asgard archaeal radiation.
 - Numerical results underlying main-figure contamination panels are deposited under `data/decontamination/assessment/`.
-- Example analysis commands are provided under `scripts/`; paths inside scripts are placeholders.
+- Example analysis commands are provided under `scripts/`; paths inside scripts are placeholders and should be adapted to local environments.

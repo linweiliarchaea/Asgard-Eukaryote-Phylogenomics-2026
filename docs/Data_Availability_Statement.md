@@ -14,10 +14,10 @@ Genome collections, phylogenetic marker sets, concatenated alignments, phylogene
 
 | Content | Location |
 | --- | --- |
-| Supplementary Tables 1–20 (complete set) | `data/supplementary_tables/` |
+| Supplementary Tables (complete set) | `data/supplementary_tables/` |
 | Genome accession lists and GTDB taxonomy for each GS | `data/genome_sets/` |
 | Taxonomic counts after hierarchical balancing (phylum / class / order) | `data/taxonomic_counts/` |
-| Four phylogenetic marker sets; composition and overlap | `data/PMS/` |
+| Four independently curated phylogenetic marker sets; composition and overlap | `data/PMS/` |
 | Concatenated amino-acid supermatrices | `data/alignments/` |
 | Maximum-likelihood, PMSF, CAT-GTR and AU-test outputs | `data/trees/` |
 | Contamination assessment tables and primary decontamination / post-hoc audit summaries | `data/decontamination/` |
@@ -65,3 +65,5 @@ Panel-level notes on scripted versus manually assembled displays (GraphPad Prism
 ## Code availability
 
 Example commands and workflows are provided under `scripts/` for documentation of the analytical pipeline. Paths inside scripts are placeholders and should be adapted to local computing environments. Software used for the primary analyses is listed in the Methods section of the manuscript and in the repository root `README.md`.
+
+Under full control of both contamination and taxonomic sampling imbalance, all 12 genome-set–marker-set analyses recovered eukaryotes as sister to a monophyletic TACK–Asgard archaeal radiation. Alignments, trees and summary tables supporting this result are deposited as described above.

@@ -1,8 +1,8 @@
-# Sampling imbalance and contamination explain conflicting archaeal placements of eukaryotes
+# Contamination and taxon sampling explain conflicting eukaryote placements
 
 Data and analysis scripts supporting the manuscript:
 
-**Bias-controlled phylogenomics resolves conflicting archaeal placements of eukaryotes**
+**Contamination and taxon sampling explain conflicting eukaryote placements**
 
 This repository archives genome lists, taxonomic counts, phylogenetic marker sets, concatenated alignments, phylogenetic trees, decontamination assessment tables, ESP inventories, viral-detection summaries, Supplementary Tables, and example analysis scripts used in the study.
 
@@ -24,7 +24,7 @@ Asgard_Eukaryote_Data/
 │   └── figure_reproduction/    # Scripts and notes for selected figures
 └── data/
     ├── data_README.md
-    ├── supplementary_tables/   # Supplementary Tables 1–20 and index README
+    ├── supplementary_tables/   # Supplementary Tables and index
     ├── genome_sets/            # Genome accession lists (GS*)
     ├── taxonomic_counts/       # Phylum / class / order counts after balancing
     ├── PMS/                    # Marker composition and overlap
@@ -43,9 +43,9 @@ Asgard_Eukaryote_Data/
 
 | Label in repository | Description |
 | --- | --- |
-| GS-Zhang2025 | Benchmark set based on Dong/Zhang et al. (sampling-imbalanced) |
+| GS-Zhang2025 | Benchmark set based on Zhang et al. 2025 (sampling-imbalanced) |
 | GS-Zhang2025-B | Taxonomically balanced version of GS-Zhang2025 |
-| GS-Liu2021 | Benchmark set based on Liu et al. (2021) (sampling-imbalanced) |
+| GS-Liu2021 | Benchmark set based on Liu et al. 2021 (sampling-imbalanced) |
 | GS-Liu2021-B | Taxonomically balanced version of GS-Liu2021 |
 | GS-Present-B | Independently assembled, taxonomically balanced genome set (this study) |
 
@@ -69,9 +69,11 @@ Supplementary Tables (complete set): `data/supplementary_tables/`
 | PMS | Description |
 | --- | --- |
 | PMS-Isolate | Complete isolate genomes only (strictest contamination control; lowest diversity) |
-| PMS-HighMAG1 | Isolates + MIMAG-defined high-quality MAGs after decontamination |
-| PMS-HighMAG2 | Isolates + NCBI complete-genome-level MAGs after decontamination |
+| PMS-HighMAG1 | Isolates + high-quality MAGs after decontamination |
+| PMS-HighMAG2 | Isolates + complete-genome-level MAGs after decontamination |
 | PMS-MediumMAG | Isolates + CheckM-defined medium-quality MAGs after decontamination (highest diversity) |
+
+The four marker sets were independently curated after decontamination and single-protein-tree screening for HGT-like or anomalous phylogenetic histories. They share a core of 28 markers but are not strictly nested.
 
 Composition and overlap among the four PMSs:  
 `data/PMS/PMS_composition_and_overlap.xlsx`
@@ -80,15 +82,17 @@ Composition and overlap among the four PMSs:
 
 ## Key analyses
 
-1. **Contamination assessment** — genome- and lineage-level frequencies of bacterial, eukaryotic, viral and unclassified contaminants, including Asgard order/class summaries and contamination-derived proteins with apparent similarity to eukaryotic homologues (`data/decontamination/assessment/`).
+1. **Contamination assessment** — genome- and lineage-level frequencies of bacterial, eukaryotic, viral and unclassified candidate exogenous sequences, including Asgard order/class summaries and contamination-derived proteins with apparent similarity to eukaryotic homologues (`data/decontamination/assessment/`).
 2. **Primary decontamination** — contig removal for phylogenomic genome collections (`data/decontamination/phylogenomic_sets/`).
-3. **Factorial phylogenomics** — combinations of genome collections (raw/clean × imbalanced/balanced) and the four PMSs (`data/alignments/`, `data/trees/maximum_likelihood/`).
-4. **Topology tests** — approximately unbiased (AU) tests (`data/trees/AU_tests/`).
-5. **Bayesian inference** — PhyloBayes MPI under CAT-GTR (ten independent chains; `data/trees/CAT-GTR/`).
-6. **Site-heterogeneous ML (PMSF)** — where applied (`data/trees/PMSF/`).
+3. **Factorial phylogenomics** — combinations of genome collections (raw/clean × imbalanced/balanced) and the four independently curated PMSs (`data/alignments/`, `data/trees/maximum_likelihood/`).
+4. **Topology tests** — approximately unbiased (AU) tests of competing closest-relative hypotheses (`data/trees/AU_tests/`).
+5. **Bayesian inference** — PhyloBayes MPI under CAT-GTR (ten independent chains; chain-level topologies summarized descriptively because full convergence was not achieved; `data/trees/CAT-GTR/`).
+6. **Site-heterogeneous ML (PMSF)** — LG+C60+F+G+PMSF analyses (`data/trees/PMSF/`).
 7. **ESP inventories** — presence before versus after decontamination across Asgard, TACK, Euryarchaeota and DPANN (`data/ESP/`).
 8. **Independent post-hoc audit** — multi-evidence residual contamination check (`scripts/independent_audit/`; summary tables under `data/decontamination/phylogenomic_sets/`).
-9. **Viral detection comparison** — summary tables supporting viral-contaminant analyses (`data/viral_detection_comparison/`).
+9. **Viral detection comparison** — summary tables supporting the choice of geNomad as the conservative viral detector (`data/viral_detection_comparison/`).
+
+Under full control of both contamination and taxonomic sampling imbalance, all 12 genome-set–marker-set analyses recovered eukaryotes as sister to a monophyletic TACK–Asgard archaeal radiation, outside all currently sampled Asgard lineages.
 
 ---
 
@@ -116,7 +120,8 @@ Underlying numerical tables for contamination-frequency and related panels are d
 
 ## Citation
 
-Please cite the published article when using these data or scripts.  
+Please cite the published article when using these data or scripts.
+
 Data and code supporting this study are archived at Zenodo  
 (DOI: [10.5281/zenodo.21626765](https://doi.org/10.5281/zenodo.21626765)).
 
