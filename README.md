@@ -81,15 +81,15 @@ When **both** genome contamination and taxonomic sampling imbalance are controll
 
 ---
 
-## Citation and archive
+## Citation
 
-- **GitHub:** https://github.com/tjcadd2020/Asgard-Eukaryote-Phylogenomics-2026  
-- **Zenodo (versioned archive, DOI):** https://doi.org/10.5281/zenodo.21626765  
+- **GitHub:** https://github.com/tjcadd2020/Asgard-Eukaryote-Phylogenomics-2026
+- **Zenodo:** to be updated (DOI pending)
 
-Please cite the manuscript and the Zenodo DOI when reusing data or scripts.
+Please cite the accompanying manuscript when reusing data or scripts. A versioned Zenodo archive will be linked here once available.
 
 ---
 
 ## License
 
-Data and scripts are provided for academic reuse consistent with the manuscript and the licenses of upstream databases (NCBI, GTDB, and tool-specific terms). See individual file headers and the Zenodo record for details.
+Data and scripts are provided for academic reuse consistent with the manuscript and the licenses of upstream databases (NCBI, GTDB, and tool-specific terms). See individual file headers for details.
