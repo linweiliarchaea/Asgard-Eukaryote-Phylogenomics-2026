@@ -31,13 +31,16 @@ Index of Supplementary Tables: `data/supplementary_tables/README.md`.
 
 ## Archival deposit
 
-A versioned archive of this repository will be deposited at Zenodo. The DOI will be added here once available.
+A versioned archive of this repository is available at Zenodo:  
+https://doi.org/10.5281/zenodo.21722892
 
 ---
 
 ## External sequence data
 
 Public isolate genomes and metagenome-assembled genomes (MAGs) were obtained from NCBI RefSeq/GenBank and from the additional public sources listed in the genome-list tables. Accession numbers and GTDB taxonomic assignments are provided in `data/genome_sets/` and in Supplementary Tables 1–5.
+
+Raw metagenomic sequencing data, where newly generated for this study, are deposited in the NCBI Sequence Read Archive under BioProject accession **XXXXXX** *(insert accession if applicable)*. Otherwise, raw reads remain under the BioProject accessions reported by the original data generators.
 
 ---
 
