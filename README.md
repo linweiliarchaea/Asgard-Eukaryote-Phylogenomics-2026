@@ -1,132 +1,95 @@
 # Contamination and taxon sampling explain conflicting eukaryote placements
 
-Data and analysis scripts supporting the manuscript:
+Data and analysis templates supporting the manuscript:
 
 **Contamination and taxon sampling explain conflicting eukaryote placements**
 
-This repository archives genome lists, taxonomic counts, phylogenetic marker sets, concatenated alignments, phylogenetic trees, decontamination assessment tables, ESP inventories, viral-detection summaries, Supplementary Tables, and example analysis scripts used in the study.
+This repository archives genome-set definitions, phylogenetic marker sets, alignments, trees, contamination and ESP summary tables, and **example analysis scripts**. It is intended for transparent inspection of the workflow and deposited results, not as a one-click re-run of the full compute pipeline.
 
 ---
 
-## Repository structure
+## Reproducible workflow (start here)
+
+A step-by-step walkthrough of the study design, with **full example scripts** from `scripts/` expanded and explained:
+
+**→ [Reproducible_Workflow.ipynb](./Reproducible_Workflow.ipynb)**
+
+The notebook is organised as:
+
+| Block | Focus | Main figures / data |
+| --- | --- | --- |
+| **Part A** | Contamination landscape across archaeal MAGs | Fig. 1 · `data/decontamination/assessment/` |
+| **Part B** | Bias-controlled phylogenomics (genome sets, PMS, ML, AU, CAT-GTR, post-hoc audit) | Fig. 2–3 · `data/genome_sets/`, `data/PMS/`, `data/alignments/`, `data/trees/`, `data/decontamination/phylogenomic_sets/` |
+| **Part C** | ESP inventories before vs after decontamination | Fig. 4 · `data/ESP/` |
+
+> Scripts under `scripts/` are **example templates** (placeholder paths). Published numerical results are defined by the files under `data/`.
+
+Optional rendered view:  
+[nbviewer](https://nbviewer.org/github/tjcadd2020/Asgard-Eukaryote-Phylogenomics-2026/blob/main/Reproducible_Workflow.ipynb)
+
+---
+
+## Repository layout
 
 ```text
-Asgard_Eukaryote_Data/
+.
 ├── README.md
-├── docs/
-│   └── Data_Availability_Statement.md
-├── scripts/
-│   ├── phylogenomics/          # IQ-TREE, PhyloBayes, AU tests
-│   ├── decontamination/        # Primary contamination removal
-│   ├── independent_audit/      # Post-hoc multi-evidence audit
-│   ├── balancing/              # Hierarchical taxonomic balancing
-│   ├── ESP/                    # ESP detection pipeline
-│   └── figure_reproduction/    # Scripts and notes for selected figures
-└── data/
-    ├── data_README.md
-    ├── supplementary_tables/   # Supplementary Tables and index
-    ├── genome_sets/            # Genome accession lists (GS*)
-    ├── taxonomic_counts/       # Phylum / class / order counts after balancing
-    ├── PMS/                    # Marker composition and overlap
-    ├── alignments/             # Concatenated amino-acid supermatrices
-    ├── trees/                  # ML, PMSF, CAT-GTR, AU tests
-    ├── decontamination/
-    │   ├── assessment/         # Contamination frequencies and related summaries
-    │   └── phylogenomic_sets/  # Contig-removal summaries for phylogenomic collections
-    ├── ESP/                    # ESP presence before / after decontamination
-    └── viral_detection_comparison/  # geNomad-related summary tables
+├── Reproducible_Workflow.ipynb
+├── data/
+│   ├── genome_sets/              # Accession lists + GTDB taxonomy (GS tables)
+│   ├── taxonomic_counts/         # Counts after hierarchical balancing
+│   ├── PMS/                      # Four marker sets and overlap
+│   ├── alignments/               # Concatenated AA supermatrices
+│   ├── trees/
+│   │   ├── maximum_likelihood/   # IQ-TREE consensus trees
+│   │   ├── PMSF/                 # PMSF sensitivity trees
+│   │   ├── CAT-GTR/              # PhyloBayes chains
+│   │   └── AU_tests/             # Topology tests
+│   ├── decontamination/
+│   │   ├── assessment/           # Part A: contamination frequencies (Fig. 1)
+│   │   └── phylogenomic_sets/    # Part B: contigs removed %; post-hoc audit
+│   ├── ESP/                      # ESP before/after decontamination (Fig. 4)
+│   └── supplementary_tables/     # Publication tables (CSV/XLSX as deposited)
+└── scripts/
+    ├── decontamination/          # CAT + geNomad template
+    ├── balancing/                # Hierarchical taxonomic balancing (R)
+    ├── phylogenomics/            # IQ-TREE, AU tests, PhyloBayes
+    ├── independent_audit/        # GUNC / VirSorter2 / CheckV / Whokaryote
+    ├── ESP/                      # DIAMOND + HMMER ESP pipeline
+    └── figure_reproduction/      # Notes and selected plotting scripts
 ```
 
 ---
 
-## Genome collections (GS)
+## Genome sets
 
-| Label in repository | Description |
-| --- | --- |
-| GS-Zhang2025 | Benchmark set based on Zhang et al. 2025 (sampling-imbalanced) |
-| GS-Zhang2025-B | Taxonomically balanced version of GS-Zhang2025 |
-| GS-Liu2021 | Benchmark set based on Liu et al. 2021 (sampling-imbalanced) |
-| GS-Liu2021-B | Taxonomically balanced version of GS-Liu2021 |
-| GS-Present-B | Independently assembled, taxonomically balanced genome set (this study) |
+| Genome set | Description | Table |
+| --- | --- | --- |
+| GS-Zhang2025 | Imbalanced benchmark (Zhang et al. 2025) | Supplementary Table 1 |
+| GS-Liu2021 | Imbalanced benchmark (Liu et al. 2021) | Supplementary Table 2 |
+| GS-Zhang2025-B | Balanced version of GS-Zhang2025 | Supplementary Table 3 |
+| GS-Liu2021-B | Balanced version of GS-Liu2021 | Supplementary Table 4 |
+| GS-Present-B | Independently assembled balanced set (this study) | Supplementary Table 5 |
 
-**File suffixes used with alignments and trees**
-
-| Suffix | Meaning |
-| --- | --- |
-| **raw** | Before primary decontamination |
-| **clean** | After primary decontamination |
-| **ultra-clean** | After independent post-hoc audit (where applicable) |
-| **B** | Taxonomically balanced collection |
-
-Genome accession lists: `data/genome_sets/`  
-Taxonomic counts after balancing: `data/taxonomic_counts/`  
-Supplementary Tables (complete set): `data/supplementary_tables/`
+Assemblies are obtained from NCBI RefSeq/GenBank (and any additional public sources listed in those tables) using the deposited accessions. Full raw FASTA collections are not re-hosted here.
 
 ---
 
-## Phylogenetic marker sets (PMS)
+## Main result (full control)
 
-| PMS | Description |
-| --- | --- |
-| PMS-Isolate | Complete isolate genomes only (strictest contamination control; lowest diversity) |
-| PMS-HighMAG1 | Isolates + high-quality MAGs after decontamination |
-| PMS-HighMAG2 | Isolates + complete-genome-level MAGs after decontamination |
-| PMS-MediumMAG | Isolates + CheckM-defined medium-quality MAGs after decontamination (highest diversity) |
-
-The four marker sets were independently curated after decontamination and single-protein-tree screening for HGT-like or anomalous phylogenetic histories. They share a core of 28 markers but are not strictly nested.
-
-Composition and overlap among the four PMSs:  
-`data/PMS/PMS_composition_and_overlap.xlsx`
+When **both** genome contamination and taxonomic sampling imbalance are controlled, all **12** analyses (3 balanced genome sets × 4 phylogenetic marker sets) recover eukaryotes as **sister to a monophyletic TACK–Asgard radiation**, outside currently sampled Asgard subgroups.
 
 ---
 
-## Key analyses
+## Citation and archive
 
-1. **Contamination assessment** — genome- and lineage-level frequencies of bacterial, eukaryotic, viral and unclassified candidate exogenous sequences, including Asgard order/class summaries and contamination-derived proteins with apparent similarity to eukaryotic homologues (`data/decontamination/assessment/`).
-2. **Primary decontamination** — contig removal for phylogenomic genome collections (`data/decontamination/phylogenomic_sets/`).
-3. **Factorial phylogenomics** — combinations of genome collections (raw/clean × imbalanced/balanced) and the four independently curated PMSs (`data/alignments/`, `data/trees/maximum_likelihood/`).
-4. **Topology tests** — approximately unbiased (AU) tests of competing closest-relative hypotheses (`data/trees/AU_tests/`).
-5. **Bayesian inference** — PhyloBayes MPI under CAT-GTR (ten independent chains; chain-level topologies summarized descriptively because full convergence was not achieved; `data/trees/CAT-GTR/`).
-6. **Site-heterogeneous ML (PMSF)** — LG+C60+F+G+PMSF analyses (`data/trees/PMSF/`).
-7. **ESP inventories** — presence before versus after decontamination across Asgard, TACK, Euryarchaeota and DPANN (`data/ESP/`).
-8. **Independent post-hoc audit** — multi-evidence residual contamination check (`scripts/independent_audit/`; summary tables under `data/decontamination/phylogenomic_sets/`).
-9. **Viral detection comparison** — summary tables supporting the choice of geNomad as the conservative viral detector (`data/viral_detection_comparison/`).
+- **GitHub:** https://github.com/tjcadd2020/Asgard-Eukaryote-Phylogenomics-2026  
+- **Zenodo (versioned archive, DOI):** https://doi.org/10.5281/zenodo.21626765  
 
-Under full control of both contamination and taxonomic sampling imbalance, all 12 genome-set–marker-set analyses recovered eukaryotes as sister to a monophyletic TACK–Asgard archaeal radiation, outside all currently sampled Asgard lineages.
-
----
-
-## Software (main)
-
-- IQ-TREE 3 (LG+C60+F+G; PMSF where noted)
-- PhyloBayes MPI (CAT-GTR)
-- GTDB-Tk, CheckM / CheckM2, CAT, geNomad, VirSorter2, CheckV, GUNC, Whokaryote
-- Python 3 (e.g. matplotlib, numpy) for selected figure panels
-- R for hierarchical taxonomic balancing and selected Extended Data panels
-
-Example commands are provided under `scripts/`. Paths inside scripts are placeholders and should be adapted to local environments.
-
----
-
-## Figures
-
-Panel-level notes (scripted versus GraphPad Prism, iTOL, Illustrator or BioRender) are described in:  
-`scripts/figure_reproduction/figure_reproduction_README.md`
-
-Underlying numerical tables for contamination-frequency and related panels are deposited under  
-`data/decontamination/assessment/`.
-
----
-
-## Citation
-
-Please cite the published article when using these data or scripts.
-
-Data and code supporting this study are archived at Zenodo  
-(DOI: [10.5281/zenodo.21626765](https://doi.org/10.5281/zenodo.21626765)).
+Please cite the manuscript and the Zenodo DOI when reusing data or scripts.
 
 ---
 
 ## License
 
-Data are provided for academic reuse consistent with the journal data policy. Scripts are provided as documentation of the analytical workflow.
+Data and scripts are provided for academic reuse consistent with the manuscript and the licenses of upstream databases (NCBI, GTDB, and tool-specific terms). See individual file headers and the Zenodo record for details.
