@@ -1,6 +1,5 @@
 # Contamination and taxon sampling explain conflicting eukaryote placements
 
-[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21722892-0A66C2)](https://doi.org/10.5281/zenodo.21722892)
 [![Status](https://img.shields.io/badge/Status-Submitted%20to%20Nature-C41E3A)](https://github.com/tjcadd2020/Asgard-Eukaryote-Phylogenomics-2026)
 
 Data, alignments, trees, supplementary tables and analysis scripts accompanying the manuscript.
@@ -96,20 +95,14 @@ Online view: [nbviewer](https://nbviewer.org/github/tjcadd2020/Asgard-Eukaryote-
 
 ## Data availability
 
-- Genome collections, marker sets, alignments, trees, decontamination audit results and supplementary tables are deposited at Zenodo:  
-  **https://doi.org/10.5281/zenodo.21722892**
-
 - Analysis scripts and the reproducible notebook are available in this repository:  
   **https://github.com/tjcadd2020/Asgard-Eukaryote-Phylogenomics-2026**
-
-- Raw metagenomic sequencing data remain under their original BioProject accessions (see manuscript).
 
 ---
 
 ## Citation
 
 Lin, W. *et al.* Contamination and taxon sampling explain conflicting eukaryote placements. Submitted to *Nature* (2026).  
-Data and code: https://doi.org/10.5281/zenodo.21722892
 
 ---
 
