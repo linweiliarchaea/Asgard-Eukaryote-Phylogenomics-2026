@@ -4,14 +4,21 @@ All data and code supporting the findings of this study are available as follows
 
 ---
 
-## This repository
+## Primary deposits
 
-Genome collections, phylogenetic marker sets, concatenated alignments, phylogenetic trees, decontamination assessment tables, taxonomic count tables, ESP inventories, viral-detection summaries, Supplementary Tables, and example analysis scripts are deposited in:
+| Resource | Link | Access |
+|:---------|:-----|:-------|
+| **Zenodo** | [https://doi.org/10.5281/zenodo.21769162](https://doi.org/10.5281/zenodo.21769162) | Open access |
+| **GitHub** | [https://github.com/tjcadd2020/Asgard-Eukaryote-Phylogenomics-2026](https://github.com/tjcadd2020/Asgard-Eukaryote-Phylogenomics-2026) | Open access |
 
-**https://github.com/tjcadd2020/Asgard-Eukaryote-Phylogenomics-2026**
+The Zenodo deposit archives genome collections, phylogenetic marker sets, concatenated alignments, phylogenetic trees, decontamination assessment tables, taxonomic count tables, ESP inventories, Supplementary Tables and example analysis scripts. The GitHub repository hosts the same materials together with a structured notebook (**Reproducible_Workflow.ipynb**) that maps each major results section to the corresponding deposited datasets and example commands, to support transparent and reproducible inspection of the analyses.
+
+---
+
+## Repository contents
 
 | Content | Location |
-| --- | --- |
+|:--------|:---------|
 | Supplementary Tables (complete set) | `data/supplementary_tables/` |
 | Genome accession lists and GTDB taxonomy for each GS | `data/genome_sets/` |
 | Taxonomic counts after hierarchical balancing (phylum / class / order) | `data/taxonomic_counts/` |
@@ -22,6 +29,7 @@ Genome collections, phylogenetic marker sets, concatenated alignments, phylogene
 | ESP / iESP detection counts before and after decontamination | `data/ESP/` |
 | Viral-detection comparison summaries | `data/viral_detection_comparison/` |
 | Example analysis scripts (phylogenomics, decontamination, balancing, ESP, independent audit) | `scripts/` |
+| Reproducible workflow notebook | `Reproducible_Workflow.ipynb` |
 | Figure-panel production notes | `scripts/figure_reproduction/figure_reproduction_README.md` |
 
 Overview of the `data/` layout: `data/data_README.md`.  
@@ -54,4 +62,12 @@ Panel-level notes on scripted versus manually assembled displays (GraphPad Prism
 
 Example commands and workflows are provided under `scripts/` to document the analytical pipeline. Paths inside scripts are placeholders and should be adapted to local computing environments. Software used for the primary analyses is listed in the Methods section of the manuscript and in the repository root `README.md`.
 
-Under simultaneous control of both genome contamination and taxonomic sampling imbalance, all 12 genome-set–marker-set analyses recovered eukaryotes as sister to a monophyletic TACK–Asgard archaeal radiation. Alignments, trees and summary tables supporting this result are deposited as described above.
+A structured notebook (**Reproducible_Workflow.ipynb**) maps each major results section to the corresponding deposited datasets, trees and example commands, and is available in the project repository to support transparent and reproducible inspection of the analyses:
+
+[https://github.com/tjcadd2020/Asgard-Eukaryote-Phylogenomics-2026/blob/main/Reproducible_Workflow.ipynb](https://github.com/tjcadd2020/Asgard-Eukaryote-Phylogenomics-2026/blob/main/Reproducible_Workflow.ipynb)
+
+---
+
+## Key deposited result
+
+Under simultaneous control of both genome contamination and taxonomic sampling imbalance, all 12 genome-set × marker-set analyses recovered eukaryotes as sister to a monophyletic TACK–Asgard archaeal radiation. Alignments, trees and summary tables supporting this result are deposited as described above.
