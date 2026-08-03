@@ -1,95 +1,118 @@
 # Contamination and taxon sampling explain conflicting eukaryote placements
 
-Data and analysis templates supporting the manuscript:
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21722892-0A66C2)](https://doi.org/10.5281/zenodo.21722892)
+[![Status](https://img.shields.io/badge/Status-Submitted%20to%20Nature-C41E3A)](https://github.com/tjcadd2020/Asgard-Eukaryote-Phylogenomics-2026)
 
-**Contamination and taxon sampling explain conflicting eukaryote placements**
-
-This repository archives genome-set definitions, phylogenetic marker sets, alignments, trees, contamination and ESP summary tables, and **example analysis scripts**. It is intended for transparent inspection of the workflow and deposited results, not as a one-click re-run of the full compute pipeline.
-
----
-
-## Reproducible workflow (start here)
-
-A step-by-step walkthrough of the study design, with **full example scripts** from `scripts/` expanded and explained:
-
-**→ [Reproducible_Workflow.ipynb](./Reproducible_Workflow.ipynb)**
-
-The notebook is organised as:
-
-| Block | Focus | Main figures / data |
-| --- | --- | --- |
-| **Part A** | Contamination landscape across archaeal MAGs | Fig. 1 · `data/decontamination/assessment/` |
-| **Part B** | Bias-controlled phylogenomics (genome sets, PMS, ML, AU, CAT-GTR, post-hoc audit) | Fig. 2–3 · `data/genome_sets/`, `data/PMS/`, `data/alignments/`, `data/trees/`, `data/decontamination/phylogenomic_sets/` |
-| **Part C** | ESP inventories before vs after decontamination | Fig. 4 · `data/ESP/` |
-
-> Scripts under `scripts/` are **example templates** (placeholder paths). Published numerical results are defined by the files under `data/`.
-
-Optional rendered view:  
-[nbviewer](https://nbviewer.org/github/tjcadd2020/Asgard-Eukaryote-Phylogenomics-2026/blob/main/Reproducible_Workflow.ipynb)
+Data, alignments, trees, supplementary tables and analysis scripts accompanying the manuscript.
 
 ---
 
-## Repository layout
+## Overview
 
-```text
+The archaeal origin of eukaryotes remains unresolved. Phylogenomic studies have placed eukaryotes within or near different Asgard lineages, often with strong statistical support for mutually incompatible topologies. This repository supports a study showing that much of this conflict arises from two upstream biases in MAG-based phylogenomics—genome contamination and taxonomic sampling imbalance—rather than from alternative historical signals.
+
+When both biases are controlled, twelve independent analyses (three balanced genome sets × four independently curated marker sets) converge on a single topology: eukaryotes as sister to a monophyletic TACK–Asgard archaeal radiation, outside all currently sampled Asgard subgroups.
+
+---
+
+## Main result
+
+**Full-control condition** (contamination removed + taxonomic sampling balanced):
+
+> Eukaryotes are recovered as sister to a monophyletic TACK–Asgard radiation in all 12 genome-set × marker-set combinations.
+
+Contamination primarily increases disagreement among marker sets. Sampling imbalance generates recurrent directional attraction toward particular archaeal lineages. Only simultaneous control of both biases produces topological consistency across independently curated marker sets.
+
+---
+
+## Genome collections
+
+| Genome set | Description | Sampling |
+|---|---|---|
+| GS-Zhang2025 | Zhang *et al.* (2025) benchmark | Imbalanced |
+| GS-Liu2021 | Liu *et al.* (2021) benchmark | Imbalanced |
+| GS-Zhang2025-B | Balanced version of GS-Zhang2025 | Balanced |
+| GS-Liu2021-B | Balanced version of GS-Liu2021 | Balanced |
+| GS-Present-B | Independently constructed balanced collection | Balanced |
+
+Raw (contaminated) and clean (decontaminated) versions of each collection were analysed in parallel.
+
+---
+
+## Phylogenetic marker sets
+
+| Marker set | Source genomes | Proteins |
+|---|---|---|
+| PMS-Isolate | Complete isolate genomes only | 35 |
+| PMS-HighMAG1 | Isolates + MIMAG high-quality MAGs | 34 |
+| PMS-HighMAG2 | Isolates + NCBI complete-genome-level MAGs | 32 |
+| PMS-MediumMAG | Isolates + CheckM medium-quality MAGs (≥70% / ≤10%) | 30 |
+
+Candidate marker families were examined in single-protein trees before concatenation. Families showing HGT-like or anomalous domain-level clustering were excluded. The four sets share a core of 28 markers but are not strictly nested, allowing agreement across independently curated gene sets to serve as a robustness criterion.
+
+---
+
+## Repository structure
+
+```
 .
 ├── README.md
 ├── Reproducible_Workflow.ipynb
 ├── data/
-│   ├── genome_sets/              # Accession lists + GTDB taxonomy (GS tables)
-│   ├── taxonomic_counts/         # Counts after hierarchical balancing
-│   ├── PMS/                      # Four marker sets and overlap
-│   ├── alignments/               # Concatenated AA supermatrices
-│   ├── trees/
-│   │   ├── maximum_likelihood/   # IQ-TREE consensus trees
-│   │   ├── PMSF/                 # PMSF sensitivity trees
-│   │   ├── CAT-GTR/              # PhyloBayes chains
-│   │   └── AU_tests/             # Topology tests
-│   ├── decontamination/
-│   │   ├── assessment/           # Part A: contamination frequencies (Fig. 1)
-│   │   └── phylogenomic_sets/    # Part B: contigs removed %; post-hoc audit
-│   ├── ESP/                      # ESP before/after decontamination (Fig. 4)
-│   └── supplementary_tables/     # Publication tables (CSV/XLSX as deposited)
+│   ├── genome_sets/           # Final genome lists (raw & clean)
+│   ├── taxonomic_counts/      # Phylum / class / order counts
+│   ├── PMS/                   # Marker composition lists
+│   ├── alignments/            # Concatenated alignments
+│   ├── trees/                 # ML and AU tree files
+│   ├── decontamination/       # Contamination calls & post-hoc audit
+│   ├── ESP/                   # ESP inventories before/after decontamination
+│   └── supplementary_tables/  # Supplementary tables (CSV)
 └── scripts/
-    ├── decontamination/          # CAT + geNomad template
-    ├── balancing/                # Hierarchical taxonomic balancing (R)
-    ├── phylogenomics/            # IQ-TREE, AU tests, PhyloBayes
-    ├── independent_audit/        # GUNC / VirSorter2 / CheckV / Whokaryote
-    ├── ESP/                      # DIAMOND + HMMER ESP pipeline
-    └── figure_reproduction/      # Notes and selected plotting scripts
+    ├── balancing/
+    ├── decontamination/
+    ├── phylogenomics/
+    ├── independent_audit/
+    ├── ESP/
+    └── figure_reproduction/
 ```
 
----
-
-## Genome sets
-
-| Genome set | Description | Table |
-| --- | --- | --- |
-| GS-Zhang2025 | Imbalanced benchmark (Zhang et al. 2025) | Supplementary Table 1 |
-| GS-Liu2021 | Imbalanced benchmark (Liu et al. 2021) | Supplementary Table 2 |
-| GS-Zhang2025-B | Balanced version of GS-Zhang2025 | Supplementary Table 3 |
-| GS-Liu2021-B | Balanced version of GS-Liu2021 | Supplementary Table 4 |
-| GS-Present-B | Independently assembled balanced set (this study) | Supplementary Table 5 |
-
-Assemblies are obtained from NCBI RefSeq/GenBank (and any additional public sources listed in those tables) using the deposited accessions. Full raw FASTA collections are not re-hosted here.
+Scripts under `scripts/` are templates with placeholder paths. Published results are defined by the files under `data/`.
 
 ---
 
-## Main result (full control)
+## Reproducible workflow
 
-When **both** genome contamination and taxonomic sampling imbalance are controlled, all **12** analyses (3 balanced genome sets × 4 phylogenetic marker sets) recover eukaryotes as **sister to a monophyletic TACK–Asgard radiation**, outside currently sampled Asgard subgroups.
+Interactive notebook: [`Reproducible_Workflow.ipynb`](./Reproducible_Workflow.ipynb)
+
+| Section | Content | Location |
+|---|---|---|
+| A | Contamination landscape across archaeal MAGs | `data/decontamination/` |
+| B | Bias-controlled phylogenomics (ML, AU, CAT-GTR, post-hoc audit) | `data/genome_sets/`, `data/PMS/`, `data/alignments/`, `data/trees/` |
+| C | ESP inventories before versus after decontamination | `data/ESP/` |
+
+Online view: [nbviewer](https://nbviewer.org/github/tjcadd2020/Asgard-Eukaryote-Phylogenomics-2026/blob/main/Reproducible_Workflow.ipynb)
+
+---
+
+## Data availability
+
+- Genome collections, marker sets, alignments, trees, decontamination audit results and supplementary tables are deposited at Zenodo:  
+  **https://doi.org/10.5281/zenodo.21722892**
+
+- Analysis scripts and the reproducible notebook are available in this repository:  
+  **https://github.com/tjcadd2020/Asgard-Eukaryote-Phylogenomics-2026**
+
+- Raw metagenomic sequencing data remain under their original BioProject accessions (see manuscript).
 
 ---
 
 ## Citation
 
-- **GitHub:** https://github.com/tjcadd2020/Asgard-Eukaryote-Phylogenomics-2026
-- **Zenodo:** https://doi.org/10.5281/zenodo.21722892
-
-Please cite the accompanying manuscript and this Zenodo DOI when reusing data or scripts.
+Lin, W. *et al.* Contamination and taxon sampling explain conflicting eukaryote placements. Submitted to *Nature* (2026).  
+Data and code: https://doi.org/10.5281/zenodo.21722892
 
 ---
 
 ## License
 
-Data and scripts are provided for academic reuse consistent with the manuscript and the licenses of upstream databases (NCBI, GTDB, and tool-specific terms). See individual file headers for details.
+Data and scripts are released for academic reuse in accordance with the manuscript and the licenses of upstream databases (NCBI, GTDB) and software authors.
