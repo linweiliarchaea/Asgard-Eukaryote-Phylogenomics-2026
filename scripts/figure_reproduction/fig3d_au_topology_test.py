@@ -1,30 +1,45 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Fig. 3d (panel d) — Topology tests (Approximately Unbiased test)
+Fig. 3d — Topology tests (Approximately Unbiased test)
+
+Manuscript
+----------
+Contamination and taxon sampling explain conflicting eukaryote placements
 
 Reproduces the published panel summarizing AU tests of alternative
 eukaryotic placements relative to the supported topology
 ((TACK, Asgard), Eukaryotes).
 
-Supported topology and alternative constraint topologies were evaluated
-with IQ-TREE (AU test). P-values below are taken from the deposited
-AU output and are embedded here for figure layout only.
+Methods / Results context
+-------------------------
+Competing topologies were evaluated with the approximately unbiased (AU)
+test in IQ-TREE under LG+C60+F+G. Under full control of contamination and
+taxonomic sampling imbalance, the topology placing eukaryotes as sister to
+a monophyletic TACK–Asgard clade was supported. Alternative placements
+(e.g. sister to Heimdallarchaeia, Njordarchaeia, Hodarchaeales, or TACK
+alone) received low AU P-values and were rejected at the conventional
+α = 0.05 threshold.
 
-Data source (deposited with the manuscript):
-    data/trees/AU_test_results.iqtree and/or data/trees/robustness_analyses.xlsx associated with AU topology tests
+Data source (deposited with the manuscript)
+-------------------------------------------
+    data/trees/AU_tests/AU_test_results.iqtree
+    and/or robustness summary tables associated with AU topology tests
+P-values below are taken from the deposited AU output and are embedded
+here for figure layout only.
 
-Update the path below to match your repository layout.
-
-Dependencies:
+Dependencies
+------------
     pip install matplotlib numpy
 
-Outputs (current working directory):
+Outputs (current working directory)
+-----------------------------------
     au_topology_test.png
     au_topology_test.svg
     au_topology_test.pdf
 
-Usage:
+Usage
+-----
     python scripts/figure_reproduction/fig3d_au_topology_test.py
 """
 
@@ -42,22 +57,22 @@ mpl.rcParams["axes.linewidth"] = 1.4
 # ---------------------------------------------------------------------------
 # AU test results (from IQ-TREE AU output / deposited summary tables)
 # P = Approximately Unbiased test P-value
-# Rejection strength plotted as -log10(P); dashed line = P = 0.05
+# Rejection strength = -log10(P); dashed line = P = 0.05
 # ---------------------------------------------------------------------------
-supported_topology = "((TACK, Asgard),Eukaryotes)"
+supported_topology = "((TACK, Asgard), Eukaryotes)"
 supported_p = 0.999
 
 # Alternative constrained topologies and their AU P-values
 alternatives = [
-    ("(Heimdallarchaeia,Eukaryotes)", 6.36e-05),
-    ("(Njordarchaeia,Eukaryotes)", 0.000263),
-    ("(Hodarchaeales,Eukaryotes)", 0.000255),
-    ("(TACK,Eukaryotes)", 0.00158),
+    ("(Heimdallarchaeia, Eukaryotes)", 6.36e-05),
+    ("(Njordarchaeia, Eukaryotes)", 0.000263),
+    ("(Hodarchaeales, Eukaryotes)", 0.000255),
+    ("(TACK, Eukaryotes)", 0.00158),
 ]
 
 labels = [x[0] for x in alternatives]
 pvals = np.array([x[1] for x in alternatives], dtype=float)
-strength = -np.log10(pvals)  # rejection strength
+strength = -np.log10(pvals)
 threshold_x = -math.log10(0.05)  # P = 0.05
 
 # ---------------------------------------------------------------------------
@@ -145,4 +160,4 @@ ax.set_xlabel(
 plt.savefig("au_topology_test.png", dpi=600, bbox_inches="tight", facecolor="white")
 plt.savefig("au_topology_test.svg", bbox_inches="tight", facecolor="white")
 plt.savefig("au_topology_test.pdf", bbox_inches="tight", facecolor="white")
-print("Saved: au_topology_test.png, au_topology_test.svg, au_topology_test.pdf")
+print("Wrote au_topology_test.{png,svg,pdf}")

@@ -3,25 +3,44 @@
 """
 Fig. 1c — MAGs harbouring contamination-derived eukaryote-like proteins (%)
 
+Manuscript
+----------
+Contamination and taxon sampling explain conflicting eukaryote placements
+
 Reproduces the published panel: percentage of MAGs in each major archaeal
 group that encode proteins located on contaminant contigs and showing
 apparent similarity to eukaryotic homologues (bacterial-, eukaryotic-,
 viral- and unclassified-derived categories).
 
-Data source (deposited with the manuscript):
+Methods / Results context
+-------------------------
+Proteins encoded on contaminant-derived contigs were analysed for apparent
+affinity to eukaryotic homologues. Such proteins were enriched in Asgard
+genomes and were especially frequent in lineages with elevated contamination
+burdens. Many of the strongest apparent eukaryote-like matches originated
+from genomic regions classified as contaminants, providing a direct mechanism
+by which contamination can increase apparent similarity between specific
+Asgard lineages and eukaryotes and thereby generate misleading
+archaeal–eukaryotic affinities.
+
+Data source (deposited with the manuscript)
+-------------------------------------------
     data/decontamination/assessment/contamination_derived_eukaryote_like_protein_frequency.xlsx
 Summary percentages below match the deposited assessment tables and are
 embedded here for figure layout only.
 
-Dependencies:
+Dependencies
+------------
     pip install matplotlib numpy
 
-Outputs (current working directory):
+Outputs (current working directory)
+-----------------------------------
     contamination_derived_eukaryote_like_proteins.png
     contamination_derived_eukaryote_like_proteins.svg
     contamination_derived_eukaryote_like_proteins.pdf
 
-Usage:
+Usage
+-----
     python scripts/figure_reproduction/fig1c_contamination_derived_eukaryote_like_proteins.py
 """
 
@@ -37,13 +56,14 @@ mpl.rcParams["pdf.fonttype"] = 42
 mpl.rcParams["axes.linewidth"] = 1.2
 
 # ---------------------------------------------------------------------------
-# Summary statistics (from data/decontamination/assessment/contamination_derived_eukaryote_like_protein_frequency.xlsx)
-# values = % of MAGs with ≥1 contamination-derived protein that has
+# Summary statistics
+# From contamination_derived_eukaryote_like_protein_frequency.xlsx
+# values = % of MAGs with ≥1 contamination-derived protein showing
 #          apparent similarity to eukaryotic homologues
-# Rows in each list: Asgard, TACK, Euryarchaeota, DPANN (same N for all)
+# Order: Asgard, TACK, Euryarchaeota, DPANN
 # ---------------------------------------------------------------------------
 groups = ["Asgard", "TACK", "Euryarchaeota", "DPANN"]
-n = 469  # MAG count per group used as denominator; confirm against assessment tables
+n = 469  # MAG count per group (denominator); confirm against assessment tables
 
 datasets = [
     {
@@ -161,6 +181,9 @@ def draw_unknown_icon(ax, x, y, color):
     )
 
 
+icon_drawers = [draw_bacteria_icon, draw_euk_icon, draw_virus_icon, draw_unknown_icon]
+icon_x = [0.83, 0.84, 0.84, 0.80]
+
 for i, item in enumerate(datasets):
     ax = fig.add_subplot(gs[0, i + 1])
     vals = np.array(item["values"])
@@ -203,21 +226,23 @@ for i, item in enumerate(datasets):
         transform=ax.transAxes, color=color, fontsize=17, fontweight="bold",
         ha="left", va="center", clip_on=False,
     )
-    if i == 0:
-        draw_bacteria_icon(ax, 0.83, 1.18, color)
-    elif i == 1:
-        draw_euk_icon(ax, 0.84, 1.18, color)
-    elif i == 2:
-        draw_virus_icon(ax, 0.84, 1.18, color)
-    else:
-        draw_unknown_icon(ax, 0.80, 1.18, color)
+    icon_drawers[i](ax, icon_x[i], 1.18, color)
 
     ax.set_xlabel(
         "Contamination-derived eukaryotic proteins (%)",
         fontsize=10.8, fontweight="bold", labelpad=6,
     )
 
-plt.savefig("contamination_derived_eukaryote_like_proteins.png", dpi=600, bbox_inches="tight", facecolor="white")
-plt.savefig("contamination_derived_eukaryote_like_proteins.svg", bbox_inches="tight", facecolor="white")
-plt.savefig("contamination_derived_eukaryote_like_proteins.pdf", bbox_inches="tight", facecolor="white")
-print("Saved PNG, SVG and PDF files.")
+plt.savefig(
+    "contamination_derived_eukaryote_like_proteins.png",
+    dpi=600, bbox_inches="tight", facecolor="white",
+)
+plt.savefig(
+    "contamination_derived_eukaryote_like_proteins.svg",
+    bbox_inches="tight", facecolor="white",
+)
+plt.savefig(
+    "contamination_derived_eukaryote_like_proteins.pdf",
+    bbox_inches="tight", facecolor="white",
+)
+print("Wrote contamination_derived_eukaryote_like_proteins.{png,svg,pdf}")

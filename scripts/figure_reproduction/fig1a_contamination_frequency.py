@@ -3,24 +3,42 @@
 """
 Fig. 1a — Contamination frequency across archaeal groups
 
+Manuscript
+----------
+Contamination and taxon sampling explain conflicting eukaryote placements
+
 Reproduces the published panel showing genome-level contamination frequencies
 (%) for bacterial, eukaryotic, viral and unclassified contaminants in isolate
 genomes versus MAG-derived genomes across Asgard, TACK, Euryarchaeota and DPANN.
 
-Data source (deposited with the manuscript):
+Methods context
+---------------
+Contamination patterns were quantified across major archaeal groups. Genome-
+level contamination frequency was calculated as the proportion of genomes
+containing at least one contaminant contig in a given category. Contaminant
+origins were assigned using CAT (bacterial, eukaryotic, unclassified) and
+geNomad (viral). Isolate genomes and MAG-derived genomes are shown separately
+because contamination burden is concentrated in MAGs, and among MAGs is highest
+in Asgard lineages repeatedly proposed as close relatives of eukaryotes.
+
+Data source (deposited with the manuscript)
+-------------------------------------------
     data/decontamination/assessment/contamination_by_lineage.xlsx
 Summary percentages below match the deposited assessment tables and are
 embedded here for figure layout only.
 
-Dependencies:
+Dependencies
+------------
     pip install matplotlib numpy
 
-Outputs (written to the current working directory):
+Outputs (current working directory)
+-----------------------------------
     contamination_frequency_archaea.png
     contamination_frequency_archaea.svg
     contamination_frequency_archaea.pdf
 
-Usage (from repository root, or adjust paths as needed):
+Usage
+-----
     python scripts/figure_reproduction/fig1a_contamination_frequency.py
 """
 
@@ -35,15 +53,17 @@ mpl.rcParams["svg.fonttype"] = "none"
 mpl.rcParams["pdf.fonttype"] = 42
 
 # ---------------------------------------------------------------------------
-# Summary statistics (from data/decontamination/assessment/contamination_by_lineage.xlsx)
-# Values are percentages of genomes with ≥1 contaminant contig in each
-# category. Sample sizes (N) are genome counts used as denominators.
+# Summary statistics
+# From data/decontamination/assessment/contamination_by_lineage.xlsx
+# Values = % of genomes with ≥1 contaminant contig in each category.
+# N = genome counts used as denominators (must match assessment tables).
 # ---------------------------------------------------------------------------
 groups = ["Asgard", "TACK", "Euryarchaeota", "DPANN"]
 
-# Number of isolate genomes and MAG-derived genomes per group
+# Isolate genomes and MAG-derived genomes per group
 isolate_n = [4, 155, 466, 4]
-mag_n = [469, 469, 469, 469]  # update if assessment tables differ by group
+# MAG sample sizes in the deposited assessment (update if tables change)
+mag_n = [469, 469, 469, 469]
 
 categories = [
     "Bacterial\ncontamination",
@@ -61,6 +81,7 @@ isolate_values = np.array([
     [0.00, 0.00, 0.00, 0.00],   # DPANN isolates
 ])
 
+# Results text: Asgard bacterial 63.33%; viral 25.59% (highest among groups)
 mag_values = np.array([
     [63.33, 2.99, 25.59, 17.27],  # Asgard MAGs
     [30.49, 1.07, 12.37, 5.33],   # TACK MAGs
@@ -68,12 +89,11 @@ mag_values = np.array([
     [43.71, 0.64, 12.79, 9.81],   # DPANN MAGs
 ])
 
-# Total N shown in side labels (must match assessment tables)
-N_ISOLATE_TOTAL = 629
-N_MAG_TOTAL = 1876
+N_ISOLATE_TOTAL = int(np.sum(isolate_n))  # 629
+N_MAG_TOTAL = int(np.sum(mag_n))          # 1876
 
 # ---------------------------------------------------------------------------
-# Colours and colormaps
+# Colours
 # ---------------------------------------------------------------------------
 blue = "#1455B3"
 red = "#E91E24"
@@ -91,7 +111,7 @@ cmaps = [
 mag_max = mag_values.max(axis=0)
 
 # ---------------------------------------------------------------------------
-# Figure layout
+# Figure
 # ---------------------------------------------------------------------------
 fig = plt.figure(figsize=(8.8, 10.8), dpi=300)
 ax = fig.add_axes([0, 0, 1, 1])
@@ -113,7 +133,7 @@ for x, label, color in zip(col_x, categories, header_colors):
         fontsize=12, fontweight="bold", color=color,
     )
 
-# --- Column icons (schematic only) ---
+# --- Column icons (schematic) ---
 # Bacterial
 x, y = col_x[0], 0.82
 for dx, dy, angle in [(-0.018, 0.010, 25), (0.022, -0.020, 25)]:
@@ -167,7 +187,7 @@ def rounded_outer_box(x0, y0, w, h, edgecolor="black", facecolor="white", lw=1.6
     return patch
 
 
-# Side labels: isolate vs MAG blocks
+# Side labels: isolate vs MAG
 iso_y0 = 0.435
 iso_h = row_h * 4
 rounded_outer_box(0.035, iso_y0, 0.145, iso_h, edgecolor="black", facecolor="#EFF5FC", lw=1.5)
@@ -264,3 +284,4 @@ ax.text(
 plt.savefig("contamination_frequency_archaea.png", dpi=600, bbox_inches="tight", facecolor="white")
 plt.savefig("contamination_frequency_archaea.svg", bbox_inches="tight", facecolor="white")
 plt.savefig("contamination_frequency_archaea.pdf", bbox_inches="tight", facecolor="white")
+print("Wrote contamination_frequency_archaea.{png,svg,pdf}")
