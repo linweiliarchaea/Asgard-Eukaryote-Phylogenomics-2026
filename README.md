@@ -3,7 +3,6 @@
 <p align="center">
   <a href="https://github.com/tjcadd2020/Asgard-Eukaryote-Phylogenomics-2026"><img src="https://img.shields.io/badge/Status-Data%20%26%20code-6B7280?style=flat-square" alt="Data"></a>
   <a href="./Reproducible_Workflow.ipynb"><img src="https://img.shields.io/badge/Notebook-Reproducible%20Workflow-2ea44f?style=flat-square" alt="Notebook"></a>
-  <a href="https://doi.org/10.5281/zenodo.21798197"><img src="https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21798197-blue?style=flat-square" alt="DOI"></a>
   <a href="./docs/Data_Availability_Statement.md"><img src="https://img.shields.io/badge/Data-Availability-0A66C2?style=flat-square" alt="Data availability"></a>
 </p>
 
@@ -77,7 +76,7 @@ Only simultaneous control of both biases produces a stable placement of eukaryot
 
 Raw (**contaminated**) and clean (**decontaminated**) versions of each collection were analysed in parallel. Hierarchical balancing brought **Asgard and TACK** to comparable representation, with Euryarchaeota and DPANN retained at modestly lower numbers.
 
-Accession lists and GTDB taxonomy: `data/genome_sets/` and Supplementary Tables 1–5.  
+Accession lists and GTDB taxonomy: `data/genome_sets/` and Supplementary Tables 2–6.  
 Taxonomic counts after balancing: `data/taxonomic_counts/`.
 
 ---
@@ -165,11 +164,11 @@ Figure-panel production notes (scripted vs Prism / iTOL / Illustrator / BioRende
 | Resource | Link | Access |
 |:---------|:-----|:-------|
 | **GitHub** | [tjcadd2020/Asgard-Eukaryote-Phylogenomics-2026](https://github.com/tjcadd2020/Asgard-Eukaryote-Phylogenomics-2026) | Open access |
-| **Zenodo** | [10.5281/zenodo.21798197](https://doi.org/10.5281/zenodo.21798197) | Open access |
+| **Zenodo** | DOI to be assigned upon deposition | Open access (planned) |
 
 Full statement: [`docs/Data_Availability_Statement.md`](./docs/Data_Availability_Statement.md)
 
-Public isolate genomes and MAGs were obtained from NCBI and the additional sources listed in the genome-list tables. Accession numbers are provided in `data/genome_sets/` and Supplementary Tables 1–5; full raw FASTA assemblies are not re-hosted here.
+Public isolate genomes and MAGs were obtained from NCBI and the additional sources listed in the genome-list tables. Accession numbers are provided in `data/genome_sets/` and Supplementary Tables 2–6; full raw FASTA assemblies are not re-hosted here.
 
 ---
 
@@ -178,8 +177,8 @@ Public isolate genomes and MAGs were obtained from NCBI and the additional sourc
 ```text
 Lin, W. et al. Contamination and taxon sampling explain conflicting
 eukaryote placements. (2026).
-Code and data: https://doi.org/10.5281/zenodo.21798197
-GitHub: https://github.com/tjcadd2020/Asgard-Eukaryote-Phylogenomics-2026
+Code and data: https://github.com/tjcadd2020/Asgard-Eukaryote-Phylogenomics-2026
+(Zenodo DOI will be added after the archive is updated)
 ```
 
 

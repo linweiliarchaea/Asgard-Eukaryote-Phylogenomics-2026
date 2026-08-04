@@ -8,7 +8,7 @@ All data and code supporting the findings of this study are available as follows
 
 | Resource | Link | Access |
 |:---------|:-----|:-------|
-| **Zenodo** | [10.5281/zenodo.21798197](https://doi.org/10.5281/zenodo.21798197) | Open access |
+| **Zenodo** | DOI to be assigned upon deposition | Open access (planned) |
 | **GitHub** | [https://github.com/tjcadd2020/Asgard-Eukaryote-Phylogenomics-2026](https://github.com/tjcadd2020/Asgard-Eukaryote-Phylogenomics-2026) | Open access |
 
 The Zenodo deposit archives genome collections, phylogenetic marker sets, concatenated alignments, phylogenetic trees, decontamination assessment tables, taxonomic count tables, ESP inventories, Supplementary Tables and example analysis scripts. The GitHub repository hosts the same materials together with a structured notebook (**Reproducible_Workflow.ipynb**) that maps each major results section to the corresponding deposited datasets and the complete example scripts used in the study, to support transparent and reproducible inspection of the analyses.
@@ -41,13 +41,13 @@ Genome sets analysed in the manuscript comprise:
 - **GS-Liu2021** / **GS-Liu2021-B** — Liu et al. (2021) collection and its taxonomically balanced version  
 - **GS-Present-B** — independently assembled, taxonomically balanced collection (this study)
 
-Raw and decontaminated (clean) versions of each collection were analysed in parallel. Accession numbers and GTDB assignments are provided in Supplementary Tables 1–5 and under `data/genome_sets/`.
+Raw and decontaminated (clean) versions of each collection were analysed in parallel. Accession numbers and GTDB assignments are provided in Supplementary Tables 2–6 and under `data/genome_sets/`.
 
 ---
 
 ## External sequence data
 
-Public isolate genomes and metagenome-assembled genomes (MAGs) were obtained from NCBI RefSeq/GenBank and from the additional public sources listed in the genome-list tables. Accession numbers and GTDB taxonomic assignments are provided in `data/genome_sets/` and in Supplementary Tables 1–5. Full raw FASTA assemblies are not re-hosted in this repository; they can be retrieved from the public databases using the deposited accession lists.
+Public isolate genomes and metagenome-assembled genomes (MAGs) were obtained from NCBI RefSeq/GenBank and from the additional public sources listed in the genome-list tables. Accession numbers and GTDB taxonomic assignments are provided in `data/genome_sets/` and in Supplementary Tables 2–6. Full raw FASTA assemblies are not re-hosted in this repository; they can be retrieved from the public databases using the deposited accession lists.
 
 ---
 
