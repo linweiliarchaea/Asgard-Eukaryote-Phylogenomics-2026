@@ -8,7 +8,7 @@ All data and code supporting the findings of this study are available as follows
 
 | Resource | Link | Access |
 |:---------|:-----|:-------|
-| **Zenodo** | DOI to be assigned upon deposition (placeholder: `10.5281/zenodo.XXXXXXX`) | Open access (planned) |
+| **Zenodo** | [10.5281/zenodo.21798197](https://doi.org/10.5281/zenodo.21798197) | Open access |
 | **GitHub** | [https://github.com/tjcadd2020/Asgard-Eukaryote-Phylogenomics-2026](https://github.com/tjcadd2020/Asgard-Eukaryote-Phylogenomics-2026) | Open access |
 
 The Zenodo deposit archives genome collections, phylogenetic marker sets, concatenated alignments, phylogenetic trees, decontamination assessment tables, taxonomic count tables, ESP inventories, Supplementary Tables and example analysis scripts. The GitHub repository hosts the same materials together with a structured notebook (**Reproducible_Workflow.ipynb**) that maps each major results section to the corresponding deposited datasets and the complete example scripts used in the study, to support transparent and reproducible inspection of the analyses.
