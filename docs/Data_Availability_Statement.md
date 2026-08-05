@@ -8,10 +8,13 @@ All data and code supporting the findings of this study are available as follows
 
 | Resource | Link | Access |
 |:---------|:-----|:-------|
-| **Zenodo** | [10.5281/zenodo.21798441](https://doi.org/10.5281/zenodo.21798441) | Open access |
 | **GitHub** | [https://github.com/tjcadd2020/Asgard-Eukaryote-Phylogenomics-2026](https://github.com/tjcadd2020/Asgard-Eukaryote-Phylogenomics-2026) | Open access |
+| **Zenodo** | DOI to be assigned upon deposition | Open access (planned) |
 
-The Zenodo deposit archives genome collections, phylogenetic marker sets, concatenated alignments, phylogenetic trees, decontamination assessment tables, taxonomic count tables, ESP inventories, Supplementary Tables and example analysis scripts. The GitHub repository hosts the same materials together with a structured notebook (**Reproducible_Workflow.ipynb**) that maps each major results section to the corresponding deposited datasets and the complete example scripts used in the study, to support transparent and reproducible inspection of the analyses.
+A versioned archival copy will be deposited in Zenodo. The GitHub repository hosts genome-set definitions, phylogenetic marker sets, concatenated alignments, phylogenetic trees, decontamination assessment tables, taxonomic count tables, ESP inventories, Supplementary Tables, example analysis scripts, and a structured notebook (**Reproducible_Workflow.ipynb**) that maps each major results section to the corresponding deposited datasets and embeds the complete example scripts used in the study, to support transparent inspection of the analyses.
+
+Notebook on GitHub:  
+[https://github.com/tjcadd2020/Asgard-Eukaryote-Phylogenomics-2026/blob/main/Reproducible_Workflow.ipynb](https://github.com/tjcadd2020/Asgard-Eukaryote-Phylogenomics-2026/blob/main/Reproducible_Workflow.ipynb)
 
 ---
 
@@ -37,11 +40,11 @@ Index of Supplementary Tables: `data/supplementary_tables/README.md`.
 
 Genome sets analysed in the manuscript comprise:
 
-- **GS-Zhang2025** / **GS-Zhang2025-B** — Zhang et al. (2025) collection and its taxonomically balanced version  
-- **GS-Liu2021** / **GS-Liu2021-B** — Liu et al. (2021) collection and its taxonomically balanced version  
+- **GS-Zhang2025** / **GS-Zhang2025-B** — Zhang et al. (2025) collection and its taxonomically balanced derivative  
+- **GS-Liu2021** / **GS-Liu2021-B** — Liu et al. (2021) collection and its taxonomically balanced derivative  
 - **GS-Present-B** — independently assembled, taxonomically balanced collection (this study)
 
-Raw and decontaminated (clean) versions of each collection were analysed in parallel. Accession numbers and GTDB assignments are provided in Supplementary Tables 2–6 and under `data/genome_sets/`.
+Raw (contaminated) and clean (decontaminated) versions of each collection were analysed in parallel. Accession numbers and GTDB assignments are provided in Supplementary Tables 2–6 and under `data/genome_sets/`.
 
 ---
 
@@ -55,9 +58,9 @@ Public isolate genomes and metagenome-assembled genomes (MAGs) were obtained fro
 
 Summary statistics underlying main and Extended Data figures are included in:
 
-- `data/decontamination/assessment/` — lineage-level contamination frequencies and contaminant-derived eukaryote-like protein counts (**Fig. 1**; Extended Data contamination figures)
-- `data/viral_detection_comparison/` — geNomad vs Phager call overlap (**Extended Data Fig. 1**)
-- `data/trees/` — maximum-likelihood, PMSF, CAT-GTR and AU-test outputs (**Fig. 2–3**; Extended Data Tables 2–3)
+- `data/decontamination/assessment/` — lineage-level contamination frequencies and contaminant-derived eukaryote-like protein counts (**Fig. 1**; Extended Data contamination figures)  
+- `data/viral_detection_comparison/` — geNomad vs Phager call overlap (**Extended Data Fig. 1**)  
+- `data/trees/` — maximum-likelihood, PMSF, CAT-GTR and AU-test outputs (**Figs. 2–3**; Extended Data Tables 2–3)  
 - `data/ESP/` — ESP / iESP counts before and after decontamination (**Fig. 4**)
 
 Panel-level notes on scripted versus manually assembled displays (GraphPad Prism, iTOL, Adobe Illustrator, BioRender) are given in:
@@ -70,7 +73,7 @@ Panel-level notes on scripted versus manually assembled displays (GraphPad Prism
 
 Example commands and complete workflow scripts are provided under `scripts/` to document the analytical pipeline, including:
 
-- primary decontamination (CAT + geNomad) and companion R utilities  
+- primary decontamination (CAT + geNomad) and companion utilities for ORF-level classification and counting of eukaryote-assigned proteins on exogenous contigs  
 - hierarchical taxonomic balancing  
 - maximum-likelihood phylogenomics (MAFFT → BMGE → IQ-TREE 3)  
 - approximately unbiased (AU) topology tests  
@@ -81,12 +84,10 @@ Example commands and complete workflow scripts are provided under `scripts/` to 
 
 Paths inside scripts are placeholders and should be adapted to local computing environments. Software used for the primary analyses is listed in the Methods section of the manuscript and in the repository root `README.md`.
 
-A structured notebook (**Reproducible_Workflow.ipynb**) embeds the complete example scripts in study order (contamination landscape → phylogenomics → ESP inventories) and maps each major results section to the corresponding deposited datasets and trees:
-
-[https://github.com/tjcadd2020/Asgard-Eukaryote-Phylogenomics-2026/blob/main/Reproducible_Workflow.ipynb](https://github.com/tjcadd2020/Asgard-Eukaryote-Phylogenomics-2026/blob/main/Reproducible_Workflow.ipynb)
+**Reproducible_Workflow.ipynb** embeds the complete example scripts in study order (contamination landscape → phylogenomics → ESP inventories) and maps each major results section to the corresponding deposited datasets and trees. The notebook is available in the repository root and at the GitHub link above.
 
 ---
 
 ## Key deposited result
 
-Under simultaneous control of genome contamination and taxonomic sampling imbalance, all 12 genome-set × marker-set analyses recovered eukaryotes as sister to a monophyletic TACK–Asgard archaeal radiation, outside currently sampled Asgard subgroups. Alignments, trees and summary tables supporting this result—including contigs-removed percentages for primary decontamination (Extended Data Table 2), AU test statistics (Extended Data Table 3) and chain-level CAT-GTR summaries—are deposited as described above.
+Under simultaneous control of genome contamination and taxonomic sampling imbalance, all 12 genome-set × marker-set analyses recovered eukaryotes as sister to a monophyletic TACK–Asgard archaeal radiation, outside all currently sampled Asgard subgroups. Alignments, trees and summary tables supporting this result—including contigs-removed percentages for primary decontamination (Extended Data Table 2), AU test statistics (Extended Data Table 3) and chain-level CAT-GTR summaries—are deposited as described above. Primary phylogenetic inference is based on contamination-controlled maximum-likelihood analyses and topology tests; CAT-GTR results are deposited as corroborative sensitivity analyses summarised at the chain level.
