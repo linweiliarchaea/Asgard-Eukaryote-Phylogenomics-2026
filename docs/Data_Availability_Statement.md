@@ -9,9 +9,9 @@ All data and code supporting the findings of this study are available as follows
 | Resource | Link | Access |
 |:---------|:-----|:-------|
 | **GitHub** | [https://github.com/tjcadd2020/Asgard-Eukaryote-Phylogenomics-2026](https://github.com/tjcadd2020/Asgard-Eukaryote-Phylogenomics-2026) | Open access |
-| **Zenodo** | DOI to be assigned upon deposition | Open access (planned) |
+| **Zenodo** | [10.5281/zenodo.21807183](https://doi.org/10.5281/zenodo.21807183) | Open access |
 
-A versioned archival copy will be deposited in Zenodo. The GitHub repository hosts genome-set definitions, phylogenetic marker sets, concatenated alignments, phylogenetic trees, decontamination assessment tables, taxonomic count tables, ESP inventories, Supplementary Tables, example analysis scripts, and a structured notebook (**Reproducible_Workflow.ipynb**) that maps each major results section to the corresponding deposited datasets and embeds the complete example scripts used in the study, to support transparent inspection of the analyses.
+The Zenodo deposit ([DOI: 10.5281/zenodo.21807183](https://doi.org/10.5281/zenodo.21807183)) archives a versioned copy of the study materials. The GitHub repository hosts genome-set definitions, phylogenetic marker sets, concatenated alignments, phylogenetic trees, decontamination assessment tables, taxonomic count tables, ESP inventories, Supplementary Tables, example analysis scripts, and a structured notebook (**Reproducible_Workflow.ipynb**) that maps each major results section to the corresponding deposited datasets and embeds the complete example scripts used in the study, to support transparent inspection of the analyses.
 
 Notebook on GitHub:  
 [https://github.com/tjcadd2020/Asgard-Eukaryote-Phylogenomics-2026/blob/main/Reproducible_Workflow.ipynb](https://github.com/tjcadd2020/Asgard-Eukaryote-Phylogenomics-2026/blob/main/Reproducible_Workflow.ipynb)
